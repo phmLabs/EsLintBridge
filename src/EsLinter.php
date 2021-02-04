@@ -16,7 +16,7 @@ class EsLinter
 
         $output = implode("\n", $plainOutoput);
 
-        if (strpos($output, "Cannot find module") !== false) {
+        if (strpos($output, "Cannot find module") !== false && strlen($output) < 200) {
             throw new \RuntimeException('Unable to start eslint. Please run "npm install in directory ' . realpath(__DIR__ . '/../eslint/') . '"');
         }
 
